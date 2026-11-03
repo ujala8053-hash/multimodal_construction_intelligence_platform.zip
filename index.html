@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BuildSense | Construction Intelligence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-icon">B</span><div><strong>BuildSense</strong><small>Multimodal Construction Intelligence</small></div></div>
+  <span class="status"><i></i> Prototype workspace</span>
+</header>
+<main class="container">
+  <section class="hero">
+    <div class="hero-copy"><span class="eyebrow">CONSTRUCTION • PLANNING • INSIGHT</span>
+      <h1>Build with <em>better insight.</em></h1>
+      <p>Bring site imagery, early cost planning, project schedules, and practical construction guidance into one simple workspace.</p>
+      <div class="hero-pills"><span>Image review</span><span>Cost estimate</span><span>Project workflow</span></div>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="tower tower-a"><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="tower tower-b"><b></b><b></b><b></b><b></b></div><div class="ground"></div><div class="crane"></div></div>
+  </section>
+  <section class="section-head"><div><span class="eyebrow">YOUR WORKSPACE</span><h2>Project intelligence</h2></div><p>Choose a tool to get started</p></section>
+  <section class="grid">
+    <article class="panel image-panel">
+      <div class="panel-head"><span class="icon blue">▧</span><div><h3>Image-based analysis</h3><p>Review a site or construction photo</p></div></div>
+      <form id="imageForm">
+        <label class="upload" for="imageInput"><span class="upload-symbol">＋</span><strong>Choose an image</strong><small>PNG, JPG, WEBP · up to 8 MB</small><input id="imageInput" name="image" type="file" accept=".png,.jpg,.jpeg,.webp" required></label>
+        <button class="btn primary" type="submit">Analyze image <span>→</span></button>
+      </form><div id="imageResult" class="result hidden"></div>
+    </article>
+    <article class="panel">
+      <div class="panel-head"><span class="icon orange">₹</span><div><h3>Cost & valuation estimator</h3><p>Create an early-stage budget breakdown</p></div></div>
+      <form id="estimateForm" class="form-stack">
+        <label>Built-up area per floor (sq. ft.)<input type="number" id="area" min="1" max="1000000" value="1200" required></label>
+        <div class="two-col"><label>Number of floors<input type="number" id="floors" min="1" max="100" value="2" required></label>
+        <label>Project type<select id="kind"><option>Residential basic</option><option>Residential premium</option><option>Commercial</option></select></label></div>
+        <button class="btn primary" type="submit">Estimate cost <span>→</span></button>
+      </form><div id="estimateResult" class="result hidden"></div>
+    </article>
+    <article class="panel">
+      <div class="panel-head"><span class="icon green">◷</span><div><h3>Construction planner</h3><p>Draft a sequence of project stages</p></div></div>
+      <form id="planForm" class="form-stack">
+        <div class="two-col"><label>Target duration (days)<input type="number" id="duration" min="1" max="730" value="90" required></label>
+        <label>Number of floors<input type="number" id="planFloors" min="1" max="100" value="2" required></label></div>
+        <label>Planned start date<input type="date" id="startDate"></label>
+        <button class="btn primary" type="submit">Build schedule <span>→</span></button>
+      </form><div id="planResult" class="result hidden"></div>
+    </article>
+    <article class="panel assistant-panel">
+      <div class="panel-head"><span class="icon purple">✳</span><div><h3>AI advisory assistant</h3><p>Ask about planning, materials, budgets, or safety</p></div></div>
+      <div class="chat-box" id="chatBox"><div class="bot-message">Hi! I can help organise construction checklists, early estimates, schedule planning, and material questions. What are you working on?</div></div>
+      <form id="chatForm" class="chat-form"><input id="message" placeholder="Ask a construction question…" maxlength="500" required><button class="send" aria-label="Send message">↑</button></form>
+      <div class="quick-questions"><button type="button">How should I plan a schedule?</button><button type="button">What should I check for cracks?</button></div>
+    </article>
+  </section>
+  <section class="workflow"><div><span class="eyebrow">PROJECT WORKFLOW</span><h2>From site review to handover</h2></div>
+    <div class="steps"><div><span>01</span><strong>Requirements & survey</strong><small>Scope, site conditions, approvals</small></div><div><span>02</span><strong>Analyse & plan</strong><small>Review imagery, build estimates</small></div><div><span>03</span><strong>Deliver & verify</strong><small>Track milestones and inspect</small></div></div>
+  </section>
+  <footer><span>BuildSense · Construction intelligence prototype</span><span>Verify technical decisions with qualified professionals.</span></footer>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
